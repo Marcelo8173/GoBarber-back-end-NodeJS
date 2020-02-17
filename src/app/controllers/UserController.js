@@ -35,17 +35,17 @@ class UserController{
 
     //edição de usuario
     async update(req,res) {
-        const schema = Yup.object().shape({
-            name: Yup.string(),
-            email: Yup.string().email(),
-            oldPassword: Yup.string().min(6), //se ele informar o old tem q ser obrigado a informar a nova
-            password: Yup.string().min(6).when('oldPassword', (oldPassword, field) =>
-                oldPassword ? field.required() : field 
-            ),
-            confirmPassword: Yup.string().when('password', (password, field) =>
-                password ? field.required().oneOf([Yup.ref(password)]) : field
-            ),
-        });
+            const schema = Yup.object().shape({
+                name: Yup.string(),
+                email: Yup.string().email(),
+                oldPassword: Yup.string().min(6), //se ele informar o old tem q ser obrigado a informar a nova
+                password: Yup.string().min(6).when('oldPassword', (oldPassword, field) =>
+                    oldPassword ? field.required() : field 
+                ),
+                confirmPassword: Yup.string().when('password', (password, field) =>
+                    password ? field.required().oneOf([Yup.ref(password)]) : field
+                ),
+            });
 
         const {email,oldPassword} = req.body;
         

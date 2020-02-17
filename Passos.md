@@ -176,7 +176,7 @@ async store(req,res){
 
 *** Autenticação com JWT ***
 
-- é criado um controller para de session;  
+- é criado um controller de session;  
 - instalado o jsonwebtoken
 - yarn add jsonwebtoken
 
