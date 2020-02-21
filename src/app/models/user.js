@@ -24,6 +24,12 @@ class User extends Model {
             return this;
         })
     }
+
+    //criando um relacionamento entre users e file
+    static associate(models){
+        this.belongsTo(models.File, {foreignKey: 'avatar_id'});
+    }
+
     //sempre criar fora do superInit
     checkPassword(password){
         return bcrypt.compare(password, this.password_hash);

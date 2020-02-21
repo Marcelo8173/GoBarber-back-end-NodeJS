@@ -229,3 +229,23 @@ yarn add yup
     if(!(await schema.isValid(req.body))){
         
     }
+
+
+*** Upload de arquivos ***
+
+- Importante para fazer o avatar
+- salvando apenas o avatar do usuario e depois criando os registros
+- salvamos o id no banco de dados e depois enviamos o id para o front que renderiza a imagem
+- yanr add multer -> a imagem precisa ser multipartformdata
+
+1. criamos uma pasta temp fora do src e criamos dentro dela uma pasta chamada uploads
+2. depois criamos um arquivo multer dentro de config 
+3. criamos a rota post para poder subir o aquivo para dentro da pasta tmp
+
+*** Salvando updloads dentro do banco de dados ***
+
+1. crio um aquivo dentro de controller e chamado de fileController;
+2. depois eu crio uma migration pra poder criar uma tabela no banco de dados
+3. criando um campo novo e depois criar um relacionamento
+4. é criado uma chave estrangeira dentro de uma migration
+5. e dentro do model de users é passado o relacionamento 
