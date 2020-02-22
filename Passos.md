@@ -246,6 +246,19 @@ yarn add yup
 
 1. crio um aquivo dentro de controller e chamado de fileController;
 2. depois eu crio uma migration pra poder criar uma tabela no banco de dados
-3. criando um campo novo e depois criar um relacionamento
-4. é criado uma chave estrangeira dentro de uma migration
+3. criando um campo novo e depois crio um relacionamento
+4. é criado uma chave estrangeira dentro de uma migration para referenciar o id salvo no banco com a imagem do usuario
 5. e dentro do model de users é passado o relacionamento 
+6. crio o model de file para inicializar o file
+7. por fim dentro do index do database eu passo o metodo associete criado dentro filecontroller
+
+*** Listagem de prestadores de serviços ***
+
+1. criar as rotas para listar os prestadores de serviços dentro de routes
+1. ceio um provider controller para manipular os dados da imagem
+3. dentro do providerController eu crio um metodo chamado index que vai manipular as informações
+4. dentro do metodo index eu faõ uma busca dos meus usuarios que são providers usando o findall com o metodo where do sql
+5. é retornar apenas os atributos que eu quero usando o atributtes
+6. incluir uma url para o front acessar as informações desse arquivo
+
+

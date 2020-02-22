@@ -27,7 +27,7 @@ class User extends Model {
 
     //criando um relacionamento entre users e file
     static associate(models){
-        this.belongsTo(models.File, {foreignKey: 'avatar_id'});
+        this.belongsTo(models.File, {foreignKey: 'avatar_id', as: 'avatar' });
     }
 
     //sempre criar fora do superInit
