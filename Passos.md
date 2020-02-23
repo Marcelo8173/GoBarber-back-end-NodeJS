@@ -262,3 +262,33 @@ yarn add yup
 6. incluir uma url para o front acessar as informações desse arquivo
 
 
+*** Tabela de agendamentos ***
+
+ - toda vez que um usuario agendar ele vai criar um registro desse agendamento
+1. criar uma migration para uma tabela de agendamento, essa tabale possui relação com a tabela de usuario
+2. dentro da tabela de agendamento eu registro o dia e o horario que foi marcado o agendamento e caso ele seja cancelado eu também marco
+3. crio o model de agendamentos
+
+*** Agendamento de serviços ***
+
+1. crio o controller de agendamento e crio a rota em routes.js
+2. importante logar como um usuario que não é provedor
+3. dentro do controller é feito o teste de o user é provider ou não e medoto de store com o create
+
+*** Validação de agendamento ***
+
+- a data de agendamento é uma data futura
+- é a data de agendamento já está sendo usada pelo provider
+- um agendamento por hora 
+
+1. install date-fns@next
+2. importo dentro do controller de apointment o starofhour, parseISO, isBefore
+3. crio os checks
+
+*** listagem de agendamento de usuarios logados ***
+
+1. dentro do AppointmentController crio o metodo de index para listar
+2. crio a rota de get dentro de routes
+3. procuro por todos os provider sem cancelamento
+
+*** Aplicando paginação ***
