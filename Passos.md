@@ -292,3 +292,36 @@ yarn add yup
 3. procuro por todos os provider sem cancelamento
 
 *** Aplicando paginação ***
+
+- para criar uma paginação eu passo a requisição como uma query 
+- além disso passo um limit e um offset
+
+*** Configurando o mongoDB ***
+
+- pq alguns dados dentro da aplicação não ver estruturados e nem vão ter relacionamento
+- alem disso precisam de perfomaticos
+
+1. docker run --name mongobarber -p 27017:27017 -d -t mongo //para instalar uma imagem do mongo db na maquina
+2. instalar o moongoose -> yarn add mongoose
+3. dentro do arquivo index da pasta database eu crio uma nova conexção da aplicação com o mongo
+
+*** Notificando novos agendamentos ***
+
+- schema free não cria necessariamento tabelas
+- não temos migrations
+- serão salvas as notificações no mongo pq elas não vão possuir muitas relações
+- eu não preciso fazer load do meu schema dentro do indez do database, basta apenas eu importar onde eu quero e ja sair usando
+- o mongo salva o estado então não precisa se preocupar caso ele mude as informações
+
+1. crio uma pasta chama schema dentro do app para poder armazenar os as notificações
+2. dentro dessa pasta eu crio o arquivo notifications
+
+
+*** Listar as notificações de serviços ***
+
+1. crio uma rota get dentro de routes e passo o controller de notification
+2. dentro do notification eu verifico se o user é provider e depois crio metodo index para listar 
+
+*** Marcando a notificação como lida ***
+
+1. crio uma rota do tipo put e passo o id;
