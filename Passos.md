@@ -325,3 +325,9 @@ yarn add yup
 *** Marcando a notificação como lida ***
 
 1. crio uma rota do tipo put e passo o id;
+
+*** cancelando um agendamento ***
+
+- só pode cancelar pelo menos antes de duas horas antes da hora marcada 
+
+1. crio uma rota delete
