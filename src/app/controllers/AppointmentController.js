@@ -5,7 +5,8 @@ import pt from 'date-fns/locale/pt'
 import User from '../models/user';
 import File from '../models/File';
 import Notification from '../schemas/Notifications';
-
+import Queue from '../../lib/Queue';
+import CancellationMail from '../jobs/CancellationMail';
 
 class AppointmentController  {
     async index(req,res){
@@ -99,7 +100,20 @@ class AppointmentController  {
     }
 
     async delete(req,res){
-        const appointment = await Appointment.findByPk(req.params.id);
+        const appointment = await Appointment.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    as: 'provider',
+                    attributes: ['name', 'email'],
+                },
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['name'],
+                },
+            ],
+        });
 
         if(appointment.user_id != req.userId){
             return res.status(401).json({
@@ -116,6 +130,11 @@ class AppointmentController  {
 
         appointment.canceled_at = new Date();
         await appointment.save();
+        //send email
+        
+        await Queue.add(CancellationMail.key,{
+            appointment,
+        })
 
 
         return res.json(appointment);

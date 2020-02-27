@@ -331,3 +331,42 @@ yarn add yup
 - só pode cancelar pelo menos antes de duas horas antes da hora marcada 
 
 1. crio uma rota delete
+2. e toda a logica é feita dentro de appointmenController
+
+*** E-mail de cancelamento ***
+
+- lib de email nodemailer 
+- yarn add nodemailer
+
+1. crio um arquivo mail dentro de config e passo configurações padrão (SMTP)
+    - obs: quando a aplicação estiver rodando para distribuição é necessario um serviço de e-mail como o da Amazon SAS entre outros.
+    - aqui sera usado um para ambiente de desenvolvimento (mailtrap.io)
+2. crio uma pasta lib dentro de src
+    - não é usado um controler para enviar um email, para configuração como essa é recomenaddo criar uma área isolada dentro da aplicação.
+    - todos os serviços adicionais são criados dentro desta pasta
+    - alguns serviços de email não usam autenticação
+3. dentro do aquivo Mail dentro de lib eu crio as configurações de envio
+4. depois crio dentro do delete do appoitment um envio desse email
+
+*** Criando HTML para enviar email mais personalizados ***
+
+- templated engine
+- yarn add express-handlebars nodemailer-express-handlebars
+
+1. dentro do mail de lib eu importo as duas libs e o resolve do path
+2. crio um metodo dentro de email para passar os caminhos dos arquivos 
+3. crio uma arquivo dentro  app chamado viewn onde eu crio os templates de email
+4. depois passo para dentro do appointmentcontroller as variaveis do email
+
+*** criando fila com radis ***
+
+- diminuindo o tempo de agendamento, precisamos de uma maneira de controlar
+- filas ou trabalhos em segundo plano
+- banco de chaves e valores
+- o radis serve para isso, podemos colocar varios informações lá dentro sem perder a permofance
+- docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+- bee queue (mais perfomatico porém menos robusto) ou kue
+- yarn add bee-queue
+
+1. criampos dentro de lib um arquivo chamado queue
+2. criamos um arquivo redis dentro de config para passar os configurações de porta
