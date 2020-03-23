@@ -1,5 +1,5 @@
 {
-  "name": "GoBarbe",
+  "name": "gobarbe",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -17,16 +17,27 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.2",
     "multer": "^1.4.2",
-    "nodemailer": "^6.4.3",
+    "nodemailer": "^6.4.5",
     "nodemailer-express-handlebars": "^3.1.0",
     "pg": "^7.18.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.3",
+    "sequelize": "^5.21.5",
     "yup": "^0.28.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
     "sequelize-cli": "^5.5.1",
     "sucrase": "^3.12.1"
-  }
+  },
+  "description": "Backend of a scheduling service This project is an appointment for beauty services called GoBarber It is created in nodeJS and uses concepts of: authentication with bcrypt and jwt; ORM with sequelize and postgresql relational database, and no relational database (mongoDB)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcelo8173/GoBarber-back-end-NodeJS.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Marcelo8173/GoBarber-back-end-NodeJS/issues"
+  },
+  "homepage": "https://github.com/Marcelo8173/GoBarber-back-end-NodeJS#readme",
+  "keywords": []
 }

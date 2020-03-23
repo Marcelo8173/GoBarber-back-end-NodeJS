@@ -9,6 +9,7 @@ import ProviderController from './app/controllers/ProviderController';
 import AppointmentController from './app/controllers/AppointmentController';
 import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
+import AvalaibleController from './app/controllers/AvailableControler';
 
 const routes = new Router;
 const upload = multer(multerConfig);
@@ -19,6 +20,8 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware); // todas as rotas q vem depois vão usar esse middleware
 routes.put('/users', UserController.update);
 routes.get('/providers', ProviderController.index);
+routes.get('/providers/:providerId/available', AvalaibleController.index);
+
 routes.post('/files', upload.single('file'), FileController.store)
 routes.post('/appointments',AppointmentController.store);
 routes.get('/appointments',AppointmentController.index);
