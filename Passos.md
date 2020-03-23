@@ -370,3 +370,18 @@ yarn add yup
 
 1. criampos dentro de lib um arquivo chamado queue
 2. criamos um arquivo redis dentro de config para passar os configurações de porta
+3. configuramos o nodemailer
+
+*** controlando erros ***
+
+- usamos o sentry 
+
+1. dentro de app importamos o sentry 
+2. criamos um arquivo de config para o sentry 
+3. importamos o config sentry para dentro do app 
+4. colocamos duas funções do sentry antes e depois de todas as rotas
+
+- o express não pega os erros que ocorrem dentro do metodo async para isso add uma lib 
+5. yarn add async errors
+6. para mostrar para o cliente que ocorreu um erro eu crio um metodo dentro de app
+7. yarn add youch // exibe melhor os erros que ocorrem dentro da aplicação
