@@ -385,3 +385,10 @@ yarn add yup
 5. yarn add async errors
 6. para mostrar para o cliente que ocorreu um erro eu crio um metodo dentro de app
 7. yarn add youch // exibe melhor os erros que ocorrem dentro da aplicação
+
+*** Configurando as variaveis de ambiente ***
+
+1. crio um arquivo .env
+2. dentro deles passo as variaveis que não podem exibir as credencias por questão de segurança
+3. add o arquivo .env ao gitIgnore
+4. yarn add dotenv
